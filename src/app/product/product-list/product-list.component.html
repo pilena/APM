@@ -29,6 +29,7 @@
                         <th>Price</th>
                         <th> 5 star rating</th>
                     </tr>
+                </thead>
                     <tr *ngFor = 'let product of products'>
                         <td>
                             <img *ngIf='showImage' [src] = 'product.imageUrl'
@@ -41,7 +42,7 @@
                         <td> {{product.price | currency: 'USD':'symbol':'1.2-2'}}</td>
                         <td> {{product.starRating}}</td> 
                     </tr>
-                </thead>
+                
                 <tbody>
                 </tbody>
             </table>
