@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import {ConvertToSpacesPipe} from './shared/convert-to-spaces.pipe';
 
+// don't forget to import all components and pipes to angular module
+// since we don't have more modules, everything goes to app module
 @NgModule({
   declarations: [
+    // *here we write directives, components and pipes we wrote ourselves 
     AppComponent,
-    ProductListComponent,
+    ProductListComponent, 
     ConvertToSpacesPipe
   ],
   imports: [
+    // *here we import ones already written for us 
     BrowserModule, 
     FormsModule, 
    

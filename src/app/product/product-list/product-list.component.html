@@ -17,10 +17,15 @@
         </div>
         <div class="table-responsive">
             <table class="table" *ngIf = 'products && products.length'>
+                            <!-- *basic if logic 
+                                ngIf works with DOM, if expression is false it will delete from DOM 
+                                if it's true it will show it in DOM
+                            -->
                 <thead>
                     <tr>
                         <th>
                             <button class="btn btn-primary" (click)='toggleImage() '>
+                                <!-- waiting for a button click -->
                                 {{showImage ? 'Hide' : 'Show'}} Image</button>
                         </th>
                         <th>Product</th>
@@ -30,13 +35,14 @@
                         <th> 5 star rating</th>
                     </tr>
                 </thead>
-                    <tr *ngFor = 'let product of products'>
+                    <tr *ngFor = 'let product of filteredProducts'>
                         <td>
                             <img *ngIf='showImage' [src] = 'product.imageUrl'
                             [style.width.px] ='imageWidth'
                             [style.margin.px] = 'imageMargin'>
                         </td>
                         <td> {{product.productName}}</td>
+                        <!-- we can add as many pipes as we want -->
                         <td> {{product.productCode | lowercase | convertToSpaces:'-'}}</td>
                         <td> {{product.releaseDate}}</td>
                         <td> {{product.price | currency: 'USD':'symbol':'1.2-2'}}</td>
