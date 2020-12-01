@@ -1,4 +1,4 @@
-import {Component, OnChanges} from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 
 @Component( {
     selector: 'pm-star',
@@ -7,7 +7,8 @@ import {Component, OnChanges} from '@angular/core';
 }) 
 
 export class StarComponent implements OnChanges{
-    rating : number =4;
+    @Input() rating : number;
+    //input decorator exposes a nested container proprety to container component (child to parent) 
     starWidth: number;
 
     ngOnChanges(): void {
