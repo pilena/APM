@@ -65,6 +65,10 @@ export class ProductListComponent implements OnInit{
     this.listFilter = 'cart'; //default list filter 
   }
 
+  onRatingClicked(message: string): void {
+    this.pageTitle = 'Product List: '+ message;
+  }
+
   performFilter(filterBy: string): IProduct[]{
     filterBy = filterBy.toLocaleLowerCase();
     //converting to lowercase so we can compare, caseinsensitive comparison
