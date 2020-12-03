@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from './product';
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+    //this means the service is available anywhere in the application
+})
 
 export class ProductService {
     getProducts(): IProduct[] {
