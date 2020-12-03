@@ -6,7 +6,7 @@ import { ProductService } from '../product.service';
   selector: 'pm-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
-  providers: [ProductService]
+  //providers: [ProductService] - *we don't need to add this now bc we registered it in the whole app
   //registering a service in a component so we can use it (it is also available to its child components)
 })
 export class ProductListComponent implements OnInit{
@@ -40,32 +40,16 @@ export class ProductListComponent implements OnInit{
   // we use any[] as type when we don't know or don't care about the type, which defeats 
   // the purpose of strong typing 
   // we made IProducts as a interface so we could define type for each object, it also helps us with debugging 
-  products: IProduct[] = [ {
-    "productId": 1,
-    "productName": "Leaf Rake",
-    "productCode": "GDN-0011",
-    "releaseDate": "March 19, 2019",
-    "description": "Leaf rake with 48-inch wooden handle.",
-    "price": 19.95,
-    "starRating": 3.2,
-    "imageUrl": "assets/images/leaf_rake.png"
-  },
-  {
-    "productId": 2,
-    "productName": "Garden Cart",
-    "productCode": "GDN-0023",
-    "releaseDate": "March 18, 2019",
-    "description": "15 gallon capacity rolling garden cart",
-    "price": 32.99,
-    "starRating": 4.2,
-    "imageUrl": "assets/images/garden_cart.png"
-  }];
+  products: IProduct[] = [];
+    // json with products was here, but we don't need it anymore bc of the service
+  
 
   //function that is executed when the component is first initialised 
   //here we write the default values
-  constructor(){
-    this.filteredProducts = this.products; //we want to display all products initialy 
-    this.listFilter = 'cart'; //default list filter 
+  constructor(private productService: ProductService){
+    //this.filteredProducts = this.products; //we want to display all products initialy  
+
+    //constructor is executed before ngOnInit 
   }
 
   onRatingClicked(message: string): void {
@@ -90,5 +74,7 @@ export class ProductListComponent implements OnInit{
 
   ngOnInit(): void {
     console.log("In onInit");
+    this.products = this.productService.getProducts();
+    this.filteredProducts = this.products;
   }
 }
