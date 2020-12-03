@@ -10,6 +10,7 @@ export class StarComponent implements OnChanges{
     @Input() rating : number;
     //input decorator exposes a nested container proprety to container component (child to parent) 
     starWidth: number;
+    // raising events and passing arguments back
     @Output() ratingClicked: EventEmitter<string> = new EventEmitter<string>();
     
     ngOnChanges(): void {
