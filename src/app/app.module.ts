@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { StarComponent } from './shared/star.component';
+import { ProductDetailComponent } from './product/product-detail.component';
+import { WelcomeComponent} from './home/welcome.component';
 //import {ProductService} from './product/product.service';
 
 // don't forget to import all components and pipes to angular module
@@ -17,7 +19,9 @@ import { StarComponent } from './shared/star.component';
     AppComponent,
     ProductListComponent, 
     ConvertToSpacesPipe, 
-    StarComponent,
+    StarComponent, 
+    ProductDetailComponent,
+    WelcomeComponent
    // ProductService
   ],
   imports: [
