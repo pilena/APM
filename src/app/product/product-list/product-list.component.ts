@@ -3,7 +3,6 @@ import { IProduct } from '../product';
 import { ProductService } from '../product.service';
 
 @Component({
-  selector: 'pm-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
   //providers: [ProductService] - *we don't need to add this now bc we registered it in the whole app

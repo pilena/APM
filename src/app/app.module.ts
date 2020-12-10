@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
@@ -28,7 +29,14 @@ import { WelcomeComponent} from './home/welcome.component';
     // *here we import ones already written for us 
     BrowserModule, 
     FormsModule, 
-    HttpClientModule
+    HttpClientModule, 
+    RouterModule.forRoot([
+      { path: 'product', component: ProductListComponent},
+      { path: 'product/:id', component: ProductListComponent},
+      { path: 'welcome', component: WelcomeComponent},
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
+    ])
   ],
   bootstrap: [AppComponent]
 })
